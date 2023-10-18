@@ -1,0 +1,58 @@
+{
+    "data": [
+        {
+            "type": "accounts",
+            "id": "5448f9fd-a967-4ee2-8c1a-0df822827947",
+            "attributes": {
+                "displayName": "Spending",
+                "accountType": "TRANSACTIONAL",
+                "ownershipType": "INDIVIDUAL",
+                "balance": {
+                    "currencyCode": "AUD",
+                    "value": "7.50",
+                    "valueInBaseUnits": 750
+                },
+                "createdAt": "2023-09-22T14:13:42+10:00"
+            },
+            "relationships": {
+                "transactions": {
+                    "links": {
+                        "related": "https://api.up.com.au/api/v1/accounts/5448f9fd-a967-4ee2-8c1a-0df822827947/transactions"
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/accounts/5448f9fd-a967-4ee2-8c1a-0df822827947"
+            }
+        },
+        {
+            "type": "accounts",
+            "id": "ff950ea9-d47a-4139-b074-b9ad26d78fbe",
+            "attributes": {
+                "displayName": "🎁 Gifts",
+                "accountType": "SAVER",
+                "ownershipType": "INDIVIDUAL",
+                "balance": {
+                    "currencyCode": "AUD",
+                    "value": "2.00",
+                    "valueInBaseUnits": 200
+                },
+                "createdAt": "2023-10-11T17:24:43+11:00"
+            },
+            "relationships": {
+                "transactions": {
+                    "links": {
+                        "related": "https://api.up.com.au/api/v1/accounts/ff950ea9-d47a-4139-b074-b9ad26d78fbe/transactions"
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.up.com.au/api/v1/accounts/ff950ea9-d47a-4139-b074-b9ad26d78fbe"
+            }
+        }
+    ],
+    "links": {
+        "prev": null,
+        "next": null
+    }
+}
