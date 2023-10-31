@@ -16,7 +16,7 @@ export default function App() {
   const apiKey = process.env.REACT_APP_API_KEY;
   const auth = useContext(AuthContext);
 
-  // saw this online but dont know if its what i need here.
+  // saw the useCallback hook online? but dont know if its what i need here.
   // what i am trying to do is to pass this function into the transaction component in order to get the transaction
   // balance and savings balance so I can have a running total of balances for each account that adds or subtracts individual transacations
   const accountAPI = () => {
