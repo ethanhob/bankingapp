@@ -3,19 +3,46 @@ import { AuthContext } from './authrequest';
 import Accounts from './accounts';
 import Transactions from './transactions';
 import React from 'react';
+import { useState, useContext, useEffect, useCallback } from 'react';
+import axios from 'axios';
 
 export default function App() {
-   
+  const [accountInfo, setAccountInfo] = useState({
+    transactionName: '',
+    transactionBalance: '',
+    savingName: '',
+    savingBalance: '',
+  });
+  const apiKey=process.env.REACT_APP_API_KEY;
+  const auth = useContext(AuthContext);
+
+  // saw this online but dont know if its what i need here.
+  // what i am trying to do is to pass this function into the transaction component in order to get the transaction 
+  // balance and savings balance so I can have a running total of balances for each account that adds or subtracts individual transacations
+    const accountAPI = () =>{
+      axios.get('https://api.up.com.au/api/v1/accounts', auth).then((res) => {
+        console.log(res);
+        setAccountInfo({
+          transactionName: res.data.data[0].attributes.displayName, 
+          transactionBalance: res.data.data[0].attributes.balance.value,
+          savingName: res.data.data[1].attributes.displayName, 
+          savingBalance: res.data.data[1].attributes.balance.value,    
+        })
+        })
+    };
+
       return (
         <div>
-          <h1>Here is a summary of your accounts</h1>
-        <AuthContext.Provider value={{
-          // again not sure how to create a global variable
-          Authorisation: `Bearer up:yeah:k5W1oFj5K6mfLec2elEjbIlzL14BbrF4ROob1juOc1EkjMIQC9urB8Ojt7ceJx7ulIj4HxASETXsp53ciH3GdMpG5CRxLd8rQgNIptT1RWLkpy79fXk5njQbJEzOCu6O,`   
-         }}
+          <h1>Here is a Summary of your accounts</h1>
+        <AuthContext.Provider value={
+           {
+            headers: {
+            Authorization: `Bearer ${apiKey}`
+           }
+          }}
         >
-          <Accounts />
-          <Transactions />
+          <Accounts accountAPI={accountAPI}/>
+          <Transactions accountAPI={accountAPI} accountInfo={accountInfo} />
         
         </AuthContext.Provider>
         </div>

@@ -3,7 +3,7 @@ import { AuthContext } from './authrequest';
 import axios from 'axios';
 
 function Accounts() {
-    const [accountInfo, setAccountInfo] = useState({
+const [accountInfo, setAccountInfo] = useState({
       // name: "",
       // balance: "",
 
@@ -17,8 +17,8 @@ function Accounts() {
     }
 
     useEffect(() => {
-      axios.get('https://api.up.com.au/api/v1/accounts', header).then((res) => {
-    console.log(res);
+      axios.get('https://api.up.com.au/api/v1/accounts', auth).then((res) => {
+    // console.log(res);
     setAccountInfo({
       transactionName: res.data.data[0].attributes.displayName, 
       transactionBalance: res.data.data[0].attributes.balance.value,
@@ -26,7 +26,7 @@ function Accounts() {
       savingBalance: res.data.data[1].attributes.balance.value,    
     })
     })
-    },[])
+    },[auth])
   return (
     <div>
      {/* {console.log(auth)} */}
