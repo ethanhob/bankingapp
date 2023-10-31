@@ -29,7 +29,6 @@ const [accountInfo, setAccountInfo] = useState({
     },[auth])
   return (
     <div>
-     {/* {console.log(auth)} */}
      <h2>{accountInfo.transactionName} : ${accountInfo.transactionBalance} </h2>
      <h2>{accountInfo.savingName} : ${accountInfo.savingBalance}</h2>
     </div>
