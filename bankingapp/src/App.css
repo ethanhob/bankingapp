@@ -1,3 +1,49 @@
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+  background: url('./images/space.jpg');
+  background-position: center center;
+  z-index: 0;
+}
 .App {
-  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  color:white;
+  padding-top: 40px;
+  justify-content:space-between;
+  
+}
+.App h1{
+  font-size: 40px;
+}
+.transaction{
+text-align:center;
+}
+.buttons{
+  z-index:100;
+  position: relative;
+background: linear-gradient(rgb(250, 3, 3), rgb(250, 3, 3));
+border-radius: 20%;
+cursor:pointer;
+font-size: 16px;
+color:white;
+margin:10px;
+padding: 5px;
+font-weight:700;
+}
+.transactionInfo{
+  text-align:center;
+
+}
+.accounts{
+margin-top:20px;
+margin-bottom: 20px;
+}
+.transactionRunningValuepositive {
+  color:green;
+}
+.transactionRunningValuenegative {
+  color:red;
 }
